@@ -12,11 +12,11 @@ export default function Categoria(
       <div className="grid grid-cols-2 gap-8">
         {
           questions.map(({ question, answer }) => (
-            <div key={question} className="p-6 gap-6 rounded-xl border-2 border-[#24282F] bg-[#171B22] text-xl flex flex-col">
-              <span className="w-full text-2xl">
+            <div key={question} className="p-6 gap-8 rounded-xl border-2 border-[#24282F] bg-[#171B22] text-xl flex flex-col">
+              <span className="w-full text-2xl font-semibold">
                 {question}
               </span>
-              <div className="text-base flex flex-col gap-4" dangerouslySetInnerHTML={{ __html: answer }} />
+              <div className="text-base flex flex-col gap-6" dangerouslySetInnerHTML={{ __html: answer }} />
             </div>
           ))
         }

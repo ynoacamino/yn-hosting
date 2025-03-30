@@ -2,6 +2,11 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+@plugin 'tailwind-scrollbar';
+
+.a {
+  position: unset;
+}
 
 @theme inline {
   --color-background: var(--background);

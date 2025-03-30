@@ -122,7 +122,7 @@ export default function Precios() {
           PARA TI
         </span>
       </Title>
-      <div className="glassmorphism grid grid-cols-3 w-full rounded-lg gap-6 p-6">
+      <div className="glassmorphism grid  md:grid-cols-3 w-full rounded-lg gap-5 p-5 lg:gap-6 lg:p-6">
         {
           precios.map(({
             desciption, features, name, price,

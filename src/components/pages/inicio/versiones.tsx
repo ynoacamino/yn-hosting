@@ -18,13 +18,13 @@ function VersionsJavaBedrock() {
     <div className="grid sm:grid-cols-2 w-full gap-8">
       {
         javaBedrock.map(({ image, title }) => (
-          <div key={title} className="flex flex-col gap-8 p-8 rounded-xl border-2 border-[#24282F] bg-[#171B22] items-center justify-center hover:border-[#616671] transition-colors">
+          <div key={title} className="flex flex-col gap-6 md:gap-8 p-6 md:p-8 rounded-xl border-2 border-[#24282F] bg-[#171B22] items-center justify-center hover:border-[#616671] transition-colors">
             <img
               className="rounded-xl"
               src={image}
               alt={title}
             />
-            <h3 className="w-full text-center max-w-xs text-4xl font-black uppercase">
+            <h3 className="w-full text-center max-w-xs text-2xl md:text-4xl font-black uppercase">
               {title}
             </h3>
           </div>
@@ -69,11 +69,11 @@ const otherVersions = [
 
 function OtherVersions() {
   return (
-    <div className="grid sm:grid-cols-2 md:grid-cols-3 w-full gap-6 md:gap-8">
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 w-full gap-6 md:gap-8">
       {
         otherVersions.map(({ icon: Icon, description, title }) => (
-          <div key={title} className="flex flex-col p-6 pb-10 gap-4 rounded-xl border-2 border-[#24282F] bg-[#171B22] hover:border-[#616671] transition-colors">
-            <Icon className="size-16 mb-3" />
+          <div key={title} className="flex flex-col p-4 md:p-6 pb-10 gap-3 md:gap-4 rounded-xl border-2 border-[#24282F] bg-[#171B22] hover:border-[#616671] transition-colors relative">
+            <Icon className="size-11 md:size-16 md:mb-3" />
             <h3 className="font-semibold text-xl">
               {title}
             </h3>

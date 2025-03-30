@@ -38,13 +38,13 @@ function CaracteristicasSections() {
         caracteristicas.map(({ description, image, title }) => (
           <motion.div
             key={title}
-            className="flex w-full justify-between items-center gap-10"
+            className="grid md:grid-cols-2 gap-10 w-full items-center"
             whileInView={{ opacity: 1 }}
             initial={{ opacity: 0 }}
             viewport={{ amount: 0.2, once: true }}
           >
-            <div className="flex flex-col gap-8">
-              <h3 className="font-black uppercase text-4xl">
+            <div className="flex flex-col gap-6 md:gap-8">
+              <h3 className="font-black uppercase text-2xl md:text-3xl">
                 {title}
               </h3>
               <div dangerouslySetInnerHTML={{ __html: description }} className="flex flex-col gap-6" />
@@ -52,7 +52,7 @@ function CaracteristicasSections() {
             <img
               src={image}
               alt={title}
-              className="glassmorphism rounded-xl"
+              className="glassmorphism rounded-xl w-full max-w-lg justify-self-center"
             />
           </motion.div>
         ))

@@ -1,7 +1,10 @@
+'use client';
+
 import Section from '@/components/ui/section';
 import Title from '@/components/ui/title';
 import { IconArrowRight } from '@tabler/icons-react';
 import Link from 'next/link';
+import { motion } from 'motion/react';
 
 const preguntas = [
   {
@@ -40,19 +43,27 @@ const preguntas = [
 
 function PreguntasList() {
   return (
-    <div className="w-full grid grid-cols-2 gap-8">
+    <div className="w-full grid md:grid-cols-2 gap-6 md:gap-8">
       {
         preguntas.map(({ path, title }) => (
-          <Link
-            href={path}
+          <motion.span
             key={title}
-            className="p-6 gap-4 rounded-xl border-2 border-[#24282F] bg-[#171B22] text-xl flex hover:border-[#616671] transition-colors"
+            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
+            viewport={{ amount: 0.4, once: true }}
+            className="border-2 border-[#24282F] rounded-xl overflow-hidden"
+            whileHover={{ borderColor: '#616671' }}
           >
-            <span className="w-full">
-              {title}
-            </span>
-            <IconArrowRight className="size-16 opacity-0" />
-          </Link>
+            <Link
+              href={path}
+              className="p-4 md:p-6 gap-4  bg-[#171B22] text-lg md:text-xl flex  font-semibold"
+            >
+              <span className="w-full">
+                {title}
+              </span>
+              <IconArrowRight className="size-16 opacity-0" />
+            </Link>
+          </motion.span>
         ))
       }
     </div>

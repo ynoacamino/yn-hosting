@@ -18,6 +18,7 @@ export default function TsParticlesProvider({
     <NextParticlesProvider init={init}>
       <NextParticles
         id="tsparticles"
+        className="absolute"
         options={{
           fullScreen: {
             enable: true,

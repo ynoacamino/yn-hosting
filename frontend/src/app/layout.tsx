@@ -6,9 +6,9 @@ import { unstable_ViewTransition as ViewTransition } from "react";
 import Footer from "@/components/layout/footer/Footer";
 import Gradient from "@/components/layout/global/gradient";
 import Header from "@/components/layout/header/Header";
-import Particles from "@/components/layout/particles/particles";
 import WhatsappButton from "@/components/layout/WhatsappButton";
 import { DeviceProvider } from "@/components/providers/DeviceProvider";
+import TsParticlesProvider from "@/components/providers/ParticlesProvider";
 import ProgressBarProvider from "@/components/providers/ProgressBarProvider";
 import { defaultMetadataConfig } from "@/config/metadata";
 import { apiService } from "@/services/api";
@@ -50,16 +50,17 @@ export default function RootLayout({
       >
         <ProgressBarProvider>
           <DeviceProvider>
-            <Gradient />
-            <Particles />
-            <WhatsappButton />
-            <Header />
-            <ViewTransition>
-              <main className="flex w-full flex-col items-center overflow-x-hidden">
-                {children}
-              </main>
-            </ViewTransition>
-            <Footer />
+            <TsParticlesProvider>
+              <Gradient />
+              <WhatsappButton />
+              <Header />
+              <ViewTransition>
+                <main className="flex w-full flex-col items-center overflow-x-hidden">
+                  {children}
+                </main>
+              </ViewTransition>
+              <Footer />
+            </TsParticlesProvider>
           </DeviceProvider>
         </ProgressBarProvider>
       </body>

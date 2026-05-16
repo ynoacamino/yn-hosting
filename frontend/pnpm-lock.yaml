@@ -44,12 +44,6 @@ importers:
       '@tsparticles/nextjs':
         specifier: ^4.0.2
         version: 4.0.2(@tsparticles/react@4.0.2(@tsparticles/engine@4.0.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(next@15.4.10(@babel/core@7.26.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@tsparticles/plugin-emitters':
-        specifier: ^4.0.2
-        version: 4.0.2(@tsparticles/engine@4.0.2)(@tsparticles/plugin-interactivity@4.0.2(@tsparticles/engine@4.0.2))
-      '@tsparticles/plugin-themes':
-        specifier: ^4.0.2
-        version: 4.0.2(@tsparticles/engine@4.0.2)
       '@tsparticles/react':
         specifier: ^4.0.2
         version: 4.0.2(@tsparticles/engine@4.0.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -1885,11 +1879,6 @@ packages:
 
   '@tsparticles/plugin-rgb-color@4.0.2':
     resolution: {integrity: sha512-/6VaPUTdhbV+1TMYBJ+1NhAsKaIasH0rSKVTUUWzwFDdFIl93NblGsjwZgk/7WcMEbxJ4j64nR/r8YjgUAIGSA==}
-    peerDependencies:
-      '@tsparticles/engine': 4.0.2
-
-  '@tsparticles/plugin-themes@4.0.2':
-    resolution: {integrity: sha512-Z6fi2uWJy3TS/w2k/ijPcbYPxdKU6D8sp/WXm6JHaqF0dH1OaYPOIaJkziwtt4rAf83A8U+HACbIhxob6FGSug==}
     peerDependencies:
       '@tsparticles/engine': 4.0.2
 
@@ -5349,10 +5338,6 @@ snapshots:
       '@tsparticles/engine': 4.0.2
 
   '@tsparticles/plugin-rgb-color@4.0.2(@tsparticles/engine@4.0.2)':
-    dependencies:
-      '@tsparticles/engine': 4.0.2
-
-  '@tsparticles/plugin-themes@4.0.2(@tsparticles/engine@4.0.2)':
     dependencies:
       '@tsparticles/engine': 4.0.2
 

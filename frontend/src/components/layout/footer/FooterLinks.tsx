@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import pagesConfig from "@/config/pages";
 import { extractImageUrl } from "@/lib/directus";
@@ -18,9 +19,11 @@ export default async function FooterLinks() {
         href="/"
         className="flex max-h-60 grow basis-36 justify-center self-start"
       >
-        <img
+        <Image
           src={extractImageUrl(globalData.logo)}
           alt={globalData.title}
+          width={240}
+          height={105}
           className="h-full w-full"
         />
       </Link>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
 import { useDevice } from "@/components/providers/DeviceProvider";
 import { extractImageUrl } from "@/lib/directus";
@@ -33,9 +34,11 @@ export default function ExtendDescriptionSections({
               className="flex flex-col gap-6"
             />
           </div>
-          <img
+          <Image
             src={extractImageUrl(image)}
             alt={title}
+            width={512}
+            height={320}
             className="glassmorphism w-full max-w-lg justify-self-center rounded-xl"
           />
         </motion.div>

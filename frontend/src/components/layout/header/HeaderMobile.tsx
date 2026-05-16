@@ -1,6 +1,7 @@
 "use client";
 
 import { Menu } from "lucide-react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { type ReactNode, useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -61,9 +62,11 @@ export default function HeaderMobile({ globalData }: HeaderMobileProps) {
             <div className="mb-5 flex flex-col gap-4">
               <SheetTitle className="flex flex-col font-bold text-3xl">
                 <span className="flex items-center justify-center gap-2 font-extrabold text-2xl">
-                  <img
+                  <Image
                     src={extractImageUrl(globalData.logo)}
                     alt={globalData.title}
+                    width={160}
+                    height={70}
                     className="w-40"
                   />
                 </span>

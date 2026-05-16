@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { BuyButton } from "@/components/ui/buy-button";
 import Cube3d from "@/components/ui/cube3d";
@@ -29,9 +30,11 @@ export default async function Locations() {
             ({ description, latency, name, qualification, mc_icon, block }) => (
               <div key={name} className="flex flex-col gap-4">
                 <Glass className="flex justify-between gap-4 p-2">
-                  <img
+                  <Image
                     src={extractImageUrl(mc_icon)}
                     alt={name}
+                    width={64}
+                    height={64}
                     className="aspect-square w-16 rounded-md"
                   />
                   <h3 className="flex w-full items-center justify-center text-center font-black text-xl uppercase">
@@ -50,10 +53,12 @@ export default async function Locations() {
                 <Glass className="flex justify-between gap-4">
                   <span className="mb-1">Latencia:</span>
                   <div className="flex items-center gap-2">
-                    <img
+                    <Image
                       className="w-9"
                       src="https://cms.enderhost.online/assets/6af82cc9-9a90-40d8-b70b-37754575c524"
                       alt="ping"
+                      width={36}
+                      height={36}
                     />
                     <span>{latency} ms</span>
                   </div>
@@ -62,12 +67,14 @@ export default async function Locations() {
                   <span>Calificación:</span>
                   <div className="flex items-center gap-1">
                     {Array.from({ length: qualification }).map((_, index) => (
-                      <img
-                        key={`${name}-star-${index}`}
-                        className="w-7"
-                        src="https://cms.enderhost.online/assets/a676eda0-4771-43eb-b053-cb16473517ab"
-                        alt="star"
-                      />
+                        <Image
+                          key={`${name}-star-${index}`}
+                          className="w-7"
+                          src="https://cms.enderhost.online/assets/a676eda0-4771-43eb-b053-cb16473517ab"
+                          alt="star"
+                          width={28}
+                          height={28}
+                        />
                     ))}
                   </div>
                 </Glass>
@@ -82,9 +89,11 @@ export default async function Locations() {
         <div className="glassmorphism-diamond grid w-full gap-6 rounded-xl p-6">
           <div className="flex flex-col gap-4">
             <Glass className="flex justify-between gap-4 p-2">
-              <img
+              <Image
                 src={extractImageUrl(externalLocation.mc_icon)}
                 alt={externalLocation.name}
+                width={64}
+                height={64}
                 className="aspect-square w-16 rounded-md"
               />
               <h3 className="flex w-full items-center justify-center text-center font-black text-xl uppercase">
@@ -102,27 +111,31 @@ export default async function Locations() {
             <Glass className="flex justify-between gap-4">
               <span className="mb-1">Latencia:</span>
               <div className="flex items-center gap-2">
-                <img
-                  className="w-9"
-                  src="https://cms.enderhost.online/assets/4916b66a-7a0e-45d5-a65b-1d8194e1ffe6"
-                  alt="ping"
-                />
+                  <Image
+                    className="w-9"
+                    src="https://cms.enderhost.online/assets/4916b66a-7a0e-45d5-a65b-1d8194e1ffe6"
+                    alt="ping"
+                    width={36}
+                    height={36}
+                  />
                 <span>{externalLocation.latency} ms</span>
               </div>
             </Glass>
             <Glass className="flex justify-between gap-4">
               <span>Calificación:</span>
               <div className="flex items-center gap-1">
-                {Array.from({ length: externalLocation.qualification }).map(
-                  (_, index) => (
-                    <img
-                      key={`${externalLocation.name}-star-${index}`}
-                      className="w-7"
-                      src="https://cms.enderhost.online/assets/a676eda0-4771-43eb-b053-cb16473517ab"
-                      alt="star"
-                    />
-                  ),
-                )}
+                    {Array.from({ length: externalLocation.qualification }).map(
+                      (_, index) => (
+                        <Image
+                          key={`${externalLocation.name}-star-${index}`}
+                          className="w-7"
+                          src="https://cms.enderhost.online/assets/a676eda0-4771-43eb-b053-cb16473517ab"
+                          alt="star"
+                          width={28}
+                          height={28}
+                        />
+                      ),
+                    )}
               </div>
             </Glass>
             <Glass className="flex flex-col items-center justify-center gap-10 py-12">

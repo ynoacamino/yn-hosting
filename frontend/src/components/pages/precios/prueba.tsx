@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import ChatBubble from "@/components/ui/chat-bubble";
@@ -85,9 +86,11 @@ export default function Prueba() {
           title="Listo! Disfruta de tu prueba y comprueba la calidad de nuestros servidores!"
         >
           <div className="flex w-full items-center justify-center">
-            <img
+            <Image
               src="https://ynoa-uploader.ynoacamino.me/uploads/1760821898_image%20%283%29.webp"
               alt="prueba"
+              width={512}
+              height={320}
               className="w-full max-w-lg rounded-xl"
             />
           </div>

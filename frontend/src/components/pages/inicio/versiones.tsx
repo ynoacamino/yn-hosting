@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Section from "@/components/ui/section";
 import Title from "@/components/ui/title";
 import { InicioSections } from "@/config/pages";
@@ -26,7 +27,13 @@ function VersionsJavaBedrock() {
           key={title}
           className="flex flex-col items-center justify-center gap-6 rounded-xl border-2 border-[#24282F] bg-[#171B22] p-6 transition-colors hover:border-[#616671] md:gap-8 md:p-8"
         >
-          <img className="rounded-xl" src={image} alt={title} />
+          <Image
+            className="rounded-xl"
+            src={image}
+            alt={title}
+            width={384}
+            height={256}
+          />
           <h3 className="w-full max-w-xs text-center font-black text-2xl uppercase md:text-4xl">
             {title}
           </h3>

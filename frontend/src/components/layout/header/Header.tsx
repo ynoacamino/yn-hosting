@@ -21,7 +21,7 @@ export default async function Header() {
           <span className="flex items-center justify-center gap-2 font-extrabold text-2xl">
             <img
               src={extractImageUrl(globalData.logo)}
-              alt={globalData.title}
+              alt={""}
               className="aspect-16/7 w-40"
             />
           </span>

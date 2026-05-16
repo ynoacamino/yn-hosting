@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Section from "@/components/ui/section";
 import Title from "@/components/ui/title";
 import { PreciosSections } from "@/config/pages";
@@ -23,14 +24,18 @@ export default async function MetodosDePago() {
             key={name}
             className="relative transition-transform hover:scale-105"
           >
-            <img
+            <Image
               src={extractImageUrl(image)}
               alt={name}
+              width={256}
+              height={256}
               className="absolute top-0 left-0 -z-10 aspect-square w-full justify-self-center rounded-lg object-contain blur-lg"
             />
-            <img
+            <Image
               src={extractImageUrl(image)}
               alt={name}
+              width={256}
+              height={256}
               className="z-20 aspect-square w-full justify-self-center rounded-lg object-contain"
             />
           </div>

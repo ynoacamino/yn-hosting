@@ -1,3 +1,4 @@
+import Image from "next/image";
 import "./cube3d.css";
 
 export default function Cube3d({ texture }: { texture: string }) {
@@ -5,22 +6,58 @@ export default function Cube3d({ texture }: { texture: string }) {
     <div className="cube-wrap">
       <div className="box">
         <div className="single-box side-back">
-          <img src={texture} alt="" fetchPriority="high" />
+          <Image
+            src={texture}
+            alt=""
+            width={160}
+            height={160}
+            fetchPriority="high"
+          />
         </div>
         <div className="single-box side-top">
-          <img src={texture} alt="" fetchPriority="high" />
+          <Image
+            src={texture}
+            alt=""
+            width={160}
+            height={160}
+            fetchPriority="high"
+          />
         </div>
         <div className="single-box side-bottom">
-          <img src={texture} alt="" fetchPriority="high" />
+          <Image
+            src={texture}
+            alt=""
+            width={160}
+            height={160}
+            fetchPriority="high"
+          />
         </div>
         <div className="single-box side-left">
-          <img src={texture} alt="" fetchPriority="high" />
+          <Image
+            src={texture}
+            alt=""
+            width={160}
+            height={160}
+            fetchPriority="high"
+          />
         </div>
         <div className="single-box side-right">
-          <img src={texture} alt="" fetchPriority="high" />
+          <Image
+            src={texture}
+            alt=""
+            width={160}
+            height={160}
+            fetchPriority="high"
+          />
         </div>
         <div className="single-box side-front">
-          <img src={texture} alt="" fetchPriority="high" />
+          <Image
+            src={texture}
+            alt=""
+            width={160}
+            height={160}
+            fetchPriority="high"
+          />
         </div>
       </div>
     </div>

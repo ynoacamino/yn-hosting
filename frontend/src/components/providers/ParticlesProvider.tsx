@@ -2,10 +2,9 @@
 
 import type { Engine } from "@tsparticles/engine";
 import { NextParticles, NextParticlesProvider } from "@tsparticles/nextjs";
+import { loadSlim } from "@tsparticles/slim";
 
-const init = async (engine: Engine): Promise<void> => {
-  const { loadSlim } = await import("@tsparticles/slim");
-
+const init = async (engine: Engine) => {
   await loadSlim(engine);
 };
 
@@ -18,7 +17,7 @@ export default function TsParticlesProvider({
     <NextParticlesProvider init={init}>
       <NextParticles
         id="tsparticles"
-        className="absolute"
+        className="absolute animate-fade-in opacity-0"
         options={{
           fullScreen: {
             enable: true,

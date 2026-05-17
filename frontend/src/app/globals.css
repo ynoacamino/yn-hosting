@@ -174,3 +174,7 @@ html {
     opacity: 1;
   }
 }
+
+.animate-fade-in {
+  animation: fade-in 2000ms ease forwards;
+}

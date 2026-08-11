@@ -1,4 +1,4 @@
 allowBuilds:
-  '@tsparticles/engine': true
+  '@tsparticles/engine': false
   esbuild: true
   sharp: true

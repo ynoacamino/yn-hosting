@@ -14,7 +14,7 @@ export const defaultMetadataConfig: Metadata = {
     "Servidor de Minecraft con buen ping Perú",
   ],
   openGraph: {
-    url: "https://enderhost.online",
+    url: "https://enderhost.net.pe",
     siteName: "ENDER HOSTING",
     images: [
       {
@@ -27,8 +27,8 @@ export const defaultMetadataConfig: Metadata = {
     locale: "es_PE",
     type: "website",
   },
-  metadataBase: new URL("https://enderhost.online"),
-  alternates: { canonical: "https://enderhost.online" },
+  metadataBase: new URL("https://enderhost.net.pe"),
+  alternates: { canonical: "https://enderhost.net.pe" },
   robots: {
     index: true,
     follow: true,

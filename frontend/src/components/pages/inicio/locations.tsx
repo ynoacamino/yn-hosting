@@ -55,7 +55,7 @@ export default async function Locations() {
                   <div className="flex items-center gap-2">
                     <Image
                       className="w-9"
-                      src="https://cms.enderhost.online/assets/6af82cc9-9a90-40d8-b70b-37754575c524"
+                      src="https://cms.enderhost.net.pe/assets/6af82cc9-9a90-40d8-b70b-37754575c524"
                       alt="ping"
                       width={36}
                       height={36}
@@ -70,7 +70,7 @@ export default async function Locations() {
                         <Image
                           key={`${name}-star-${index}`}
                           className="w-7"
-                          src="https://cms.enderhost.online/assets/a676eda0-4771-43eb-b053-cb16473517ab"
+                          src="https://cms.enderhost.net.pe/assets/a676eda0-4771-43eb-b053-cb16473517ab"
                           alt="star"
                           width={28}
                           height={28}
@@ -113,7 +113,7 @@ export default async function Locations() {
               <div className="flex items-center gap-2">
                   <Image
                     className="w-9"
-                    src="https://cms.enderhost.online/assets/4916b66a-7a0e-45d5-a65b-1d8194e1ffe6"
+                    src="https://cms.enderhost.net.pe/assets/4916b66a-7a0e-45d5-a65b-1d8194e1ffe6"
                     alt="ping"
                     width={36}
                     height={36}
@@ -129,7 +129,7 @@ export default async function Locations() {
                         <Image
                           key={`${externalLocation.name}-star-${index}`}
                           className="w-7"
-                          src="https://cms.enderhost.online/assets/a676eda0-4771-43eb-b053-cb16473517ab"
+                          src="https://cms.enderhost.net.pe/assets/a676eda0-4771-43eb-b053-cb16473517ab"
                           alt="star"
                           width={28}
                           height={28}

@@ -10,7 +10,7 @@ const baseConfig: NextConfig = {
     viewTransition: true,
   },
   images: {
-    domains: ["cms.enderhost.online", "ynoa-uploader.ynoacamino.me"],
+    domains: ["cms.enderhost.net.pe", "ynoa-uploader.ynoacamino.me"],
   },
 };
 

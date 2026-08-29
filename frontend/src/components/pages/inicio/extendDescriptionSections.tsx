@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "motion/react";
+import Image from "next/image";
 import { useDevice } from "@/components/providers/DeviceProvider";
 import { extractImageUrl } from "@/lib/directus";
 import type { ExtendDescriptionFeature } from "@/types/directus";

@@ -87,7 +87,7 @@ export default function Prueba() {
         >
           <div className="flex w-full items-center justify-center">
             <Image
-              src="https://ynoa-uploader.ynoacamino.me/uploads/1760821898_image%20%283%29.webp"
+              src="https://ynoa-uploader.ynoacamino.tech/uploads/1760821898_image%20%283%29.webp"
               alt="prueba"
               width={512}
               height={320}

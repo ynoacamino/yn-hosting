@@ -55,7 +55,7 @@ export default async function Locations() {
                   <div className="flex items-center gap-2">
                     <Image
                       className="w-9"
-                      src="https://cms.enderhost.online/assets/6af82cc9-9a90-40d8-b70b-37754575c524"
+                      src="https://cms.enderhost.net.pe/assets/6af82cc9-9a90-40d8-b70b-37754575c524"
                       alt="ping"
                       width={36}
                       height={36}
@@ -67,14 +67,14 @@ export default async function Locations() {
                   <span>Calificación:</span>
                   <div className="flex items-center gap-1">
                     {Array.from({ length: qualification }).map((_, index) => (
-                        <Image
-                          key={`${name}-star-${index}`}
-                          className="w-7"
-                          src="https://cms.enderhost.online/assets/a676eda0-4771-43eb-b053-cb16473517ab"
-                          alt="star"
-                          width={28}
-                          height={28}
-                        />
+                      <Image
+                        key={`${name}-star-${index}`}
+                        className="w-7"
+                        src="https://cms.enderhost.net.pe/assets/a676eda0-4771-43eb-b053-cb16473517ab"
+                        alt="star"
+                        width={28}
+                        height={28}
+                      />
                     ))}
                   </div>
                 </Glass>
@@ -111,31 +111,31 @@ export default async function Locations() {
             <Glass className="flex justify-between gap-4">
               <span className="mb-1">Latencia:</span>
               <div className="flex items-center gap-2">
-                  <Image
-                    className="w-9"
-                    src="https://cms.enderhost.online/assets/4916b66a-7a0e-45d5-a65b-1d8194e1ffe6"
-                    alt="ping"
-                    width={36}
-                    height={36}
-                  />
+                <Image
+                  className="w-9"
+                  src="https://cms.enderhost.net.pe/assets/4916b66a-7a0e-45d5-a65b-1d8194e1ffe6"
+                  alt="ping"
+                  width={36}
+                  height={36}
+                />
                 <span>{externalLocation.latency} ms</span>
               </div>
             </Glass>
             <Glass className="flex justify-between gap-4">
               <span>Calificación:</span>
               <div className="flex items-center gap-1">
-                    {Array.from({ length: externalLocation.qualification }).map(
-                      (_, index) => (
-                        <Image
-                          key={`${externalLocation.name}-star-${index}`}
-                          className="w-7"
-                          src="https://cms.enderhost.online/assets/a676eda0-4771-43eb-b053-cb16473517ab"
-                          alt="star"
-                          width={28}
-                          height={28}
-                        />
-                      ),
-                    )}
+                {Array.from({ length: externalLocation.qualification }).map(
+                  (_, index) => (
+                    <Image
+                      key={`${externalLocation.name}-star-${index}`}
+                      className="w-7"
+                      src="https://cms.enderhost.net.pe/assets/a676eda0-4771-43eb-b053-cb16473517ab"
+                      alt="star"
+                      width={28}
+                      height={28}
+                    />
+                  ),
+                )}
               </div>
             </Glass>
             <Glass className="flex flex-col items-center justify-center gap-10 py-12">

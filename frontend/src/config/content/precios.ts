@@ -19,7 +19,7 @@ export const PRECIOS = [
       "Ideal para comenzar en Minecraft con buen rendimiento y a bajo costo.",
     price: 30,
     texture:
-      "https://ynoa-uploader.ynoacamino.site/uploads/1745094817_Block_of_Iron_%28texture%29_JE3_BE3.webp",
+      "https://ynoa-uploader.ynoacamino.tech/uploads/1745094817_Block_of_Iron_%28texture%29_JE3_BE3.webp",
     features: [
       {
         icon: MemoryStick,
@@ -69,7 +69,7 @@ export const PRECIOS = [
       "Un plan equilibrado para jugadores frecuentes y servidores personalizados.",
     price: 40,
     texture:
-      "https://ynoa-uploader.ynoacamino.site/uploads/1745095652_BlockSprite_block-of-diamond%20%281%29.webp",
+      "https://ynoa-uploader.ynoacamino.tech/uploads/1745095652_BlockSprite_block-of-diamond%20%281%29.webp",
     features: [
       {
         icon: MemoryStick,
@@ -123,7 +123,7 @@ export const PRECIOS = [
       "Para comunidades exigentes y servidores con múltiples jugadores y mods.",
     price: 50,
     texture:
-      "https://ynoa-uploader.ynoacamino.site/uploads/1745092849_b41b023af7bebaa4ce3a836bae51ab0642cd1d3076ee5d360bf77dcbb1e498e5.png",
+      "https://ynoa-uploader.ynoacamino.tech/uploads/1745092849_b41b023af7bebaa4ce3a836bae51ab0642cd1d3076ee5d360bf77dcbb1e498e5.png",
     features: [
       {
         icon: MemoryStick,

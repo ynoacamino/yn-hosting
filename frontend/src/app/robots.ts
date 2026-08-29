@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/refetch/",
     },
-    sitemap: "https://enderhost.online/sitemap.xml",
+    sitemap: "https://enderhost.net.pe/sitemap.xml",
   };
 }

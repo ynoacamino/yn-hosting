@@ -19,8 +19,7 @@ export default function FollowUs() {
         <Facebook strokeWidth="1.5" />
       </Link> */}
       <Link
-        href="https://wa.me/51918534289"
-        target="_blank"
+        href="/solicitar-prueba-gratuita"
         className="hover:text-muted-foreground"
       >
         <IconBrandWhatsapp strokeWidth="1.5" />

@@ -101,10 +101,7 @@ export default function Prueba() {
         >
           <div className="flex w-full items-center justify-center">
             <Button asChild size="lg">
-              <Link
-                target="_blank"
-                href="https://wa.me/51918534289?text=%C2%A1Hola!%20Me%20encantar%C3%ADa%20solicitar%20mi%20prueba%20gratuita%20de%20Ender%20Hosting."
-              >
+              <Link target="_blank" href="/solicitar-prueba-gratuita">
                 Solicitar tu prueba gratuita
               </Link>
             </Button>

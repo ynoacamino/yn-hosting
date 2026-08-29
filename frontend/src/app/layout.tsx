@@ -11,6 +11,7 @@ import { DeviceProvider } from "@/components/providers/DeviceProvider";
 import TsParticlesProvider from "@/components/providers/ParticlesProvider";
 import ProgressBarProvider from "@/components/providers/ProgressBarProvider";
 import { defaultMetadataConfig } from "@/config/metadata";
+import { organizationSchema, websiteSchema } from "@/config/structured-data";
 import { apiService } from "@/services/api";
 
 const inter = Inter({
@@ -45,6 +46,18 @@ export default function RootLayout({
   return (
     <html lang="es">
       <GoogleAnalytics gaId="G-D2X23339MH" />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(organizationSchema).replace(/</g, "\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(websiteSchema).replace(/</g, "\u003c"),
+        }}
+      />
       <body
         className={`${inter.variable} flex flex-col items-center overflow-x-hidden font-sans antialiased`}
       >

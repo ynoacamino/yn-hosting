@@ -1,0 +1,36 @@
+{
+  "title": "Ender Hosting | Desde S/.28 soles hosting de servidores de minecraft 🇵🇪",
+  "short_title": "EnderHost",
+  "description": "¡Prueba gratuita disponible! 🚀 Disfruta de un hosting para servidores de Minecraft en Perú con alto rendimiento, configuración sencilla y precios accesibles. Aceptamos las principales billeteras digitales para que pagues de forma rápida y segura.",
+  "logo": "/uploads/logo.svg",
+  "nav": [
+    {
+      "label": "Inicio",
+      "href": "/"
+    },
+    {
+      "label": "Precios",
+      "href": "/precios"
+    },
+    {
+      "label": "Preguntas",
+      "href": "/preguntas"
+    },
+    {
+      "label": "Prueba gratis",
+      "href": "/prueba-gratuita"
+    }
+  ],
+  "social": [
+    {
+      "name": "Discord",
+      "url": "https://discord.gg/enderhost",
+      "icon": "Users"
+    },
+    {
+      "name": "WhatsApp",
+      "url": "https://wa.me/51918534289",
+      "icon": "Smartphone"
+    }
+  ]
+}

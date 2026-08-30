@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Preguntas from "@/components/pages/preguntas/preguntas";
 import { PREGUNTAS } from "@/config/content/preguntas";
 import { generateFAQSchema } from "@/config/structured-data";
+import client from "../../../tina/__generated__/client";
+import ClientPage from "../[...urlSegments]/client-page";
 
 export const metadata: Metadata = {
   title: "Preguntas Frecuentes | EnderHost",
@@ -17,7 +18,13 @@ const allPreguntas = [
 
 const faqSchema = generateFAQSchema(allPreguntas);
 
-export default function PreguntasPage() {
+export const revalidate = 60;
+
+export default async function PreguntasPage() {
+  const data = await client.queries.page({
+    relativePath: "preguntas.mdx",
+  });
+
   return (
     <>
       <script
@@ -26,7 +33,7 @@ export default function PreguntasPage() {
           __html: JSON.stringify(faqSchema).replace(/</g, "\u003c"),
         }}
       />
-      <Preguntas />
+      <ClientPage {...data} />
     </>
   );
 }

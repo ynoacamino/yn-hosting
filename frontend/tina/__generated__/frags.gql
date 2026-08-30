@@ -1,0 +1,134 @@
+fragment PageParts on Page {
+  __typename
+  blocks {
+    __typename
+    ... on PageBlocksHero {
+      title
+      heroFeatures
+      primaryButtonText
+      primaryButtonLink
+      secondaryButtonText
+      secondaryButtonLink
+    }
+    ... on PageBlocksHostingFeatures {
+      titleLine1
+      titleLine2
+      features {
+        __typename
+        title
+        content
+        icon
+      }
+    }
+    ... on PageBlocksVersions {
+      titleLine1
+      titleLine2
+      mainCards {
+        __typename
+        title
+        image
+      }
+      versionFeatures {
+        __typename
+        title
+        content
+        icon
+      }
+    }
+    ... on PageBlocksExtendDescription {
+      titleLine1
+      titleLine2
+      items {
+        __typename
+        title
+        content
+        image
+      }
+    }
+    ... on PageBlocksLocations {
+      titleLine1
+      titleLine2
+      locations {
+        __typename
+        name
+        description
+        latency
+        qualification
+        mc_icon
+        block
+        isExternal
+      }
+    }
+    ... on PageBlocksPricing {
+      titleLine1
+      titleLine2
+      discountText
+      plans {
+        __typename
+        name
+        description
+        price
+        discount
+        block
+        features {
+          __typename
+          feature
+          icon
+        }
+      }
+    }
+    ... on PageBlocksPaymentMethods {
+      titleLine1
+      titleLine2
+      title
+      methods {
+        __typename
+        name
+        image
+        description
+      }
+    }
+    ... on PageBlocksFaq {
+      titleLine1
+      titleLine2
+      variant
+      sections {
+        __typename
+        title
+        questions {
+          __typename
+          question
+          answer
+          video
+        }
+      }
+    }
+  }
+}
+
+fragment GlobalParts on Global {
+  __typename
+  title
+  short_title
+  description
+  logo
+  nav {
+    __typename
+    label
+    href
+  }
+  social {
+    __typename
+    name
+    url
+    icon
+  }
+}
+
+fragment LegalParts on Legal {
+  __typename
+  title
+  description
+  date_updated
+  body
+}

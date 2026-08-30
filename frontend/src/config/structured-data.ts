@@ -5,7 +5,7 @@ export const organizationSchema: JsonLdThing = {
   "@type": "Organization",
   name: "EnderHost",
   url: "https://enderhost.net.pe",
-  logo: "https://ynoa-uploader.ynoacamino.tech/uploads/1760851208_logo-emblema.png",
+  logo: "/uploads/logo-emblema.png",
   description:
     "Hosting de Minecraft en Perú con soporte técnico 24/7, baja latencia y planes accesibles.",
   address: {
@@ -41,8 +41,7 @@ export const productsSchema: JsonLdThing[] = [
     name: "Plan Hierro - Hosting Minecraft",
     description:
       "Ideal para comenzar en Minecraft con buen rendimiento y a bajo costo. 4GB de RAM, almacenamiento ilimitado.",
-    image:
-      "https://ynoa-uploader.ynoacamino.tech/uploads/1745094817_Block_of_Iron_%28texture%29_JE3_BE3.webp",
+    image: "/uploads/block-iron.webp",
     brand: {
       "@type": "Brand",
       name: "EnderHost",
@@ -63,8 +62,7 @@ export const productsSchema: JsonLdThing[] = [
     name: "Plan Diamante - Hosting Minecraft",
     description:
       "Un plan equilibrado para jugadores frecuentes y servidores personalizados. 6GB de RAM, backups semanales.",
-    image:
-      "https://ynoa-uploader.ynoacamino.tech/uploads/1745095652_BlockSprite_block-of-diamond%20%281%29.webp",
+    image: "/uploads/block-diamond.webp",
     brand: {
       "@type": "Brand",
       name: "EnderHost",
@@ -85,8 +83,7 @@ export const productsSchema: JsonLdThing[] = [
     name: "Plan Netherita - Hosting Minecraft",
     description:
       "Para comunidades exigentes y servidores con múltiples jugadores y mods. 8GB de RAM, backups diarios.",
-    image:
-      "https://ynoa-uploader.ynoacamino.tech/uploads/1745092849_b41b023af7bebaa4ce3a836bae51ab0642cd1d3076ee5d360bf77dcbb1e498e5.png",
+    image: "/uploads/block-netherite.png",
     brand: {
       "@type": "Brand",
       name: "EnderHost",

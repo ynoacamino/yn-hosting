@@ -13,8 +13,8 @@ const DeviceContext = createContext<DeviceContextType | null>(null);
 
 export function DeviceProvider({ children }: { children: React.ReactNode }) {
   // Solo se ejecuta en el cliente
-  const width = typeof window !== "undefined" ? window.innerWidth : 0;
-  const height = typeof window !== "undefined" ? window.innerHeight : 0;
+  const width = typeof window === "undefined" ? 0 : window.innerWidth;
+  const height = typeof window === "undefined" ? 0 : window.innerHeight;
 
   const value = useMemo(
     () => ({

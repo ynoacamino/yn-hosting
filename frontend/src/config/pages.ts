@@ -11,7 +11,10 @@ export enum ConocenosSections {}
 
 export enum PreciosSections {
   ELIGUE_EL_MEJOR = "precios-eligue-el-mejor",
+  PLAN_ROCA = "precios-plan-roca",
+  PLAN_CARBON = "precios-plan-carbon",
   PLAN_HIERRO = "precios-plan-hierro",
+  PLAN_ORO = "precios-plan-oro",
   PLAN_DIAMANTE = "precios-plan-diamante",
   PLAN_NETHERITA = "precios-plan-netherita",
   METODOS_DE_PAGO = "metodos-de-pago",
@@ -71,12 +74,24 @@ const pageConfig: PageConfigInterface = {
       path: "/precios",
       sections: [
         {
-          name: "Eligue el mejor plan",
+          name: "Elige el mejor plan",
           id: PreciosSections.ELIGUE_EL_MEJOR,
+        },
+        {
+          name: "Plan Roca",
+          id: PreciosSections.PLAN_ROCA,
+        },
+        {
+          name: "Plan Carbón",
+          id: PreciosSections.PLAN_CARBON,
         },
         {
           name: "Plan Hierro",
           id: PreciosSections.PLAN_HIERRO,
+        },
+        {
+          name: "Plan Oro",
+          id: PreciosSections.PLAN_ORO,
         },
         {
           name: "Plan Diamante",

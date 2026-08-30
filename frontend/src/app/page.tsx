@@ -1,19 +1,12 @@
-import ExtendDescription from "@/components/pages/inicio/extendDescription";
-import Hero from "@/components/pages/inicio/hero";
-import HostingFeatures from "@/components/pages/inicio/hostingFeatures";
-import ImportantQuestions from "@/components/pages/inicio/importanQuestions";
-import Locations from "@/components/pages/inicio/locations";
-import Versiones from "@/components/pages/inicio/versiones";
+import client from "../../tina/__generated__/client";
+import ClientPage from "./[...urlSegments]/client-page";
 
-export default function Home() {
-  return (
-    <>
-      <Hero />
-      <HostingFeatures />
-      <Versiones />
-      <ExtendDescription />
-      <Locations />
-      <ImportantQuestions />
-    </>
-  );
+export const revalidate = 60;
+
+export default async function Home() {
+  const data = await client.queries.page({
+    relativePath: "home.mdx",
+  });
+
+  return <ClientPage {...data} />;
 }

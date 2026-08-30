@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import MetodosDePago from "@/components/pages/precios/metodosDePago";
-import Precios from "@/components/pages/precios/precios";
 import { productsSchema } from "@/config/structured-data";
+import client from "../../../tina/__generated__/client";
+import ClientPage from "../[...urlSegments]/client-page";
 
 export const metadata: Metadata = {
   title: "Precios | EnderHost",
@@ -9,7 +9,13 @@ export const metadata: Metadata = {
     "Descubre nuestros planes de hosting y elige el que mejor se adapte a tus necesidades. Ofrecemos opciones para todos los presupuestos y requisitos.",
 };
 
-export default function PrecioPage() {
+export const revalidate = 60;
+
+export default async function PrecioPage() {
+  const data = await client.queries.page({
+    relativePath: "precios.mdx",
+  });
+
   return (
     <>
       {productsSchema.map((schema, i) => (
@@ -21,8 +27,7 @@ export default function PrecioPage() {
           }}
         />
       ))}
-      <Precios />
-      <MetodosDePago />
+      <ClientPage {...data} />
     </>
   );
 }

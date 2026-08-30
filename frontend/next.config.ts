@@ -1,26 +1,53 @@
-/* eslint-disable no-console */
-
-import MillionLint from "@million/lint";
 import type { NextConfig } from "next";
 
-const baseConfig: NextConfig = {
+const nextConfig: NextConfig = {
   output: "standalone",
   reactStrictMode: false,
-  experimental: {
-    viewTransition: true,
-  },
   images: {
-    domains: ["cms.enderhost.net.pe", "ynoa-uploader.ynoacamino.tech"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "assets.tina.io",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cms.enderhost.net.pe",
+      },
+      {
+        protocol: "https",
+        hostname: "ynoa-uploader.ynoacamino.tech",
+      },
+    ],
+  },
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          {
+            key: "X-Frame-Options",
+            value: "SAMEORIGIN",
+          },
+          {
+            key: "Content-Security-Policy",
+            value: "frame-ancestors 'self'",
+          },
+        ],
+      },
+    ];
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/admin",
+        destination: "/admin/index.html",
+      },
+    ];
   },
 };
-
-const nextConfig: NextConfig =
-  process.env.NODE_ENV === "production"
-    ? (() => {
-        return MillionLint.next({ rsc: true })(baseConfig);
-      })()
-    : (() => {
-        return baseConfig;
-      })();
 
 export default nextConfig;

@@ -19,7 +19,8 @@
       "!dist",
       "!build",
       "!public",
-      "!tests"
+      "!tests",
+      "!tina/__generated__"
     ]
   },
   "formatter": {

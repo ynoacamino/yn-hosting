@@ -49,7 +49,7 @@ export default function SolicitarPruebaPage() {
           <p className="text-lg">
             Serás redirigido a nuestro chat de WhatsApp en{" "}
             <span className="font-bold text-primary">{countdown}</span> segundo
-            {countdown !== 1 ? "s" : ""}...
+            {countdown === 1 ? "" : "s"}...
           </p>
           <p className="text-muted-foreground text-sm">
             Preparamos todo para que puedas probar tu servidor de Minecraft sin

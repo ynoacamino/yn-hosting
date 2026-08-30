@@ -18,7 +18,7 @@ export const defaultMetadataConfig: Metadata = {
     siteName: "ENDER HOSTING",
     images: [
       {
-        url: "https://ynoa-uploader.ynoacamino.tech/uploads/1760851208_logo-emblema.png",
+        url: "/uploads/logo-emblema.png",
         width: 1080,
         height: 726,
         alt: "ENDER HOSTING Open Graph Image",

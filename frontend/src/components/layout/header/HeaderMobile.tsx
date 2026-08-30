@@ -14,9 +14,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import pagesConfig from "@/config/pages";
-import { extractImageUrl } from "@/lib/directus";
 import { cn } from "@/lib/utils";
-import type { GlobalData } from "@/types/directus";
 
 function LinkMobile(
   props: React.ComponentProps<"a"> & {
@@ -43,10 +41,11 @@ function LinkMobile(
 }
 
 interface HeaderMobileProps {
-  globalData: GlobalData;
+  logo: string;
+  title: string;
 }
 
-export default function HeaderMobile({ globalData }: HeaderMobileProps) {
+export default function HeaderMobile({ logo, title }: HeaderMobileProps) {
   const [sheetOpen, setSheetOpen] = useState(false);
 
   return (
@@ -63,11 +62,11 @@ export default function HeaderMobile({ globalData }: HeaderMobileProps) {
               <SheetTitle className="flex flex-col font-bold text-3xl">
                 <span className="flex items-center justify-center gap-2 font-extrabold text-2xl">
                   <Image
-                    src={extractImageUrl(globalData.logo)}
-                    alt={globalData.title}
+                    src={logo}
+                    alt={title}
                     width={160}
                     height={70}
-                    className="w-40"
+                    className="w-40 object-contain"
                   />
                 </span>
               </SheetTitle>

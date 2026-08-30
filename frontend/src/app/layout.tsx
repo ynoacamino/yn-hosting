@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { unstable_ViewTransition as ViewTransition } from "react";
 import Footer from "@/components/layout/footer/Footer";
 import Gradient from "@/components/layout/global/gradient";
 import Header from "@/components/layout/header/Header";
@@ -12,7 +11,7 @@ import TsParticlesProvider from "@/components/providers/ParticlesProvider";
 import ProgressBarProvider from "@/components/providers/ProgressBarProvider";
 import { defaultMetadataConfig } from "@/config/metadata";
 import { organizationSchema, websiteSchema } from "@/config/structured-data";
-import { apiService } from "@/services/api";
+import client from "../../tina/__generated__/client";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,20 +20,35 @@ const inter = Inter({
 
 export async function generateMetadata(): Promise<Metadata> {
   try {
-    const globalMetadata = await apiService.getGlobalData();
+    let title = "EnderHost | Hosting de Minecraft";
+    let description =
+      "Servidores de Minecraft en Perú y Latinoamérica con alto rendimiento y baja latencia.";
+
+    try {
+      const globalData = await client.queries.global({
+        relativePath: "index.json",
+      });
+      if (globalData?.data?.global?.title) title = globalData.data.global.title;
+      if (globalData?.data?.global?.description)
+        description = globalData.data.global.description;
+    } catch {
+      // fallback
+    }
 
     return {
       ...defaultMetadataConfig,
       openGraph: {
-        title: globalMetadata.title,
-        description: globalMetadata.description,
+        title,
+        description,
         ...defaultMetadataConfig.openGraph,
       },
-      title: globalMetadata.title,
-      description: globalMetadata.description,
+      title,
+      description,
     };
-  } catch (error) {
-    throw new Error("Error al generar metadata", { cause: error });
+  } catch {
+    return {
+      ...defaultMetadataConfig,
+    };
   }
 }
 
@@ -67,11 +81,9 @@ export default function RootLayout({
               <Gradient />
               <WhatsappButton />
               <Header />
-              <ViewTransition>
-                <main className="flex w-full flex-col items-center overflow-x-hidden">
-                  {children}
-                </main>
-              </ViewTransition>
+              <main className="flex w-full flex-col items-center overflow-x-hidden">
+                {children}
+              </main>
               <Footer />
             </TsParticlesProvider>
           </DeviceProvider>

@@ -155,9 +155,10 @@ export function PricingBlock(props: PageBlocksPricing) {
                   <h3 className="text-center font-black text-4xl uppercase">
                     {plan.name}
                   </h3>
-                  <div className="h-20 text-center text-foreground/70">
-                    {plan.description}
-                  </div>
+                  <div
+                    className="h-20 text-center text-foreground/70"
+                    dangerouslySetInnerHTML={{ __html: plan.description || "" }}
+                  />
                   <div className="my-14 flex justify-center">
                     <span className="text-4xl">S/</span>
                     <span className="font-bold text-8xl">{plan.price}</span>

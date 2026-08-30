@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { productsSchema } from "@/config/structured-data";
+import { generateProductsSchema } from "@/config/structured-data";
 import client from "../../../tina/__generated__/client";
 import ClientPage from "../[...urlSegments]/client-page";
 
@@ -16,9 +16,20 @@ export default async function PrecioPage() {
     relativePath: "precios.mdx",
   });
 
+  const pricingBlocks =
+    data.data.page.blocks?.filter(
+      (b) => b?.__typename === "PageBlocksPricing",
+    ) || [];
+
+  const plans = pricingBlocks.flatMap((b) =>
+    b && "plans" in b && b.plans ? b.plans : [],
+  );
+
+  const schemas = generateProductsSchema(plans);
+
   return (
     <>
-      {productsSchema.map((schema, i) => (
+      {schemas.map((schema, i) => (
         <script
           key={`product-${i}`}
           type="application/ld+json"

@@ -28,13 +28,14 @@ This project currently has no test framework configured. When adding tests:
 
 ### Import Organization
 - Use absolute imports with `@/` prefix for src directory
+- Use `@tina/` prefix for TinaCMS imports (e.g., `@tina/__generated__/types`)
 - Type imports must use `import type` (enforced by Biome)
 - External imports first, then internal imports
 - Example:
 ```typescript
 import type { ReactNode } from "react";
 import { Button } from "@/components/ui/button";
-import { apiService } from "@/services/api";
+import { getGlobalData } from "@/services/cms";
 ```
 
 ### TypeScript Conventions
@@ -43,6 +44,7 @@ import { apiService } from "@/services/api";
 - Prefer explicit any warnings (Biome rule: noExplicitAny: "warn")
 - Use `type` imports for type-only imports
 - Function components: `export default function ComponentName()`
+- Prefer TinaCMS generated types over custom type definitions
 
 ### Component Patterns
 - Use function declarations for components (not arrow functions)
@@ -70,10 +72,11 @@ export default function Component({ children, className }: ComponentProps) {
 
 ### File Naming & Structure
 - Components: PascalCase (Button.tsx, Header.tsx)
-- Utilities/functions: camelCase (utils.ts, api.ts)
+- UI components: kebab-case (buy-button.tsx, chat-bubble.tsx, two-line-title.tsx)
+- Utilities/functions: camelCase (utils.ts, cms.ts)
 - Pages: lowercase with hyphens (precios/page.tsx)
-- Icons: PascalCase with specific naming (spigot.tsx, forge.tsx)
-- Types: camelCase (directus.ts)
+- Icons: lowercase (spigot.tsx, forge.tsx)
+- Config: camelCase (variables.ts, metadata.ts, pages.ts)
 
 ### Directory Structure
 ```
@@ -82,13 +85,13 @@ src/
 ├── components/
 │   ├── ui/           # Reusable UI components
 │   ├── layout/       # Layout components (Header, Footer)
+│   ├── blocks/       # CMS content blocks
 │   ├── icons/        # Icon components
 │   ├── pages/        # Page-specific components
 │   └── providers/    # Context providers
-├── config/           # Configuration files
+├── config/           # Configuration and constants
 ├── lib/              # Utility functions
-├── services/         # API services
-└── types/            # TypeScript type definitions
+└── services/         # Data fetching services
 ```
 
 ### Tailwind CSS Guidelines
@@ -105,7 +108,7 @@ src/
 - Example:
 ```typescript
 try {
-  const data = await apiService.getData();
+  const data = await getGlobalData();
   return data;
 } catch (error) {
   throw new Error("Error al obtener datos", { cause: error });
@@ -113,10 +116,16 @@ try {
 ```
 
 ### API Integration
-- Uses Directus CMS via @directus/sdk
-- API service centralized in src/services/api.ts
-- Types defined in src/types/directus.ts
+- Uses TinaCMS for content management
+- Data fetching centralized in `src/services/cms.ts`
+- Types auto-generated in `@tina/__generated__/types`
 - Use async/await, not .then()
+
+### Constants and Configuration
+- All constants centralized in `src/config/variables.ts`
+- Includes: SITE_URL, SITE_NAME, DEFAULT_REVALIDATE, WHATSAPP_URL, GA_ID
+- Import from `@/config/variables` instead of hardcoding values
+- Environment variables accessed through config, not directly in components
 
 ### Special Libraries Usage
 - **Radix UI**: For accessible primitives (Dialog, ScrollArea, Slot)
@@ -138,8 +147,8 @@ try {
 
 ### Environment Variables
 - Use .env for local development
-- Next.js domains configured for Directus admin instance
-- Google Analytics ID configured in layout
+- NEXT_PUBLIC_GA_ID for Google Analytics
+- TinaCMS variables for CMS access
 
 ### Commit Guidelines
 - Follow existing commit message patterns (check git log)
@@ -149,7 +158,7 @@ try {
 ## Adding New Features
 1. Check if similar patterns exist in codebase
 2. Follow component structure and naming conventions
-3. Add appropriate TypeScript types
-4. Use existing utility functions (cn, apiService, etc.)
+3. Add appropriate TypeScript types (prefer TinaCMS generated types)
+4. Use existing utility functions (cn, sf, getGlobalData, etc.)
 5. Ensure responsive design with Tailwind breakpoints
 6. Run `pnpm lint` before considering work complete

@@ -1,18 +1,11 @@
 import Link from "next/link";
+import type { Page } from "@/config/pages";
 
-type Section = {
-  id: string;
-  name: string;
-};
-
-type Page = {
-  name: string;
-  path: string;
+interface ColumnLinksProps extends Page {
   pages?: Page[];
-  sections?: Section[];
-};
+}
 
-export default function ColumnLinks(page: Page) {
+export default function ColumnLinks(page: ColumnLinksProps) {
   const { name, path, pages, sections } = page;
 
   return (

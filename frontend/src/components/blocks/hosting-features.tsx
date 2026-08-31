@@ -1,15 +1,15 @@
 "use client";
 
+import type { PageBlocksHostingFeatures } from "@tina/__generated__/types";
+import { iconSchema } from "@tina/fields/icon";
 import { motion } from "motion/react";
 import type { Template } from "tinacms";
 import { tinaField } from "tinacms/dist/react";
 import { Glass } from "@/components/ui/glass";
 import Section from "@/components/ui/section";
-import Title from "@/components/ui/title";
+import { TwoLineTitle } from "@/components/ui/two-line-title";
 import { InicioSections } from "@/config/pages";
 import { IconMapper } from "@/lib/icons";
-import type { PageBlocksHostingFeatures } from "../../../tina/__generated__/types";
-import { iconSchema } from "../../../tina/fields/icon";
 
 export const hostingFeaturesBlockSchema: Template = {
   name: "hostingFeatures",
@@ -68,14 +68,11 @@ export function HostingFeaturesBlock(props: PageBlocksHostingFeatures) {
       id={InicioSections.CREA_TU_SERVIDOR}
       className="my-32 flex flex-col gap-14"
     >
-      <Title className="flex flex-col">
-        <span data-tina-field={tinaField(props, "titleLine1")}>
-          {titleLine1}
-        </span>
-        <span data-tina-field={tinaField(props, "titleLine2")}>
-          {titleLine2}
-        </span>
-      </Title>
+      <TwoLineTitle
+        line1={titleLine1}
+        line2={titleLine2}
+        className="flex flex-col"
+      />
 
       {features && (
         <div

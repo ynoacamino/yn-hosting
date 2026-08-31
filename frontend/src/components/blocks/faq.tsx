@@ -1,18 +1,17 @@
 "use client";
 
 import { IconArrowRight } from "@tabler/icons-react";
+import type { PageBlocksFaq } from "@tina/__generated__/types";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Masonry from "react-smart-masonry";
-import slugify from "slugify";
 import type { Template } from "tinacms";
 import { tinaField } from "tinacms/dist/react";
 import Section from "@/components/ui/section";
-import Title from "@/components/ui/title";
+import { TwoLineTitle } from "@/components/ui/two-line-title";
 import { InicioSections } from "@/config/pages";
 import { sf } from "@/lib/utils";
-import type { PageBlocksFaq } from "../../../tina/__generated__/types";
 
 const breakpoints = { mobile: 0, desktop: 768 };
 
@@ -126,14 +125,11 @@ export function FaqBlock(props: PageBlocksFaq) {
         id={InicioSections.PREGUNTAS_FRECUENTES}
         className="my-32 flex flex-col gap-14"
       >
-        <Title className="flex flex-col">
-          <span data-tina-field={tinaField(props, "titleLine1")}>
-            {titleLine1}
-          </span>
-          <span data-tina-field={tinaField(props, "titleLine2")}>
-            {titleLine2}
-          </span>
-        </Title>
+        <TwoLineTitle
+          line1={titleLine1}
+          line2={titleLine2}
+          className="flex flex-col"
+        />
 
         {importantQuestions && (
           <div
@@ -177,7 +173,9 @@ export function FaqBlock(props: PageBlocksFaq) {
             className="my-10 flex flex-col gap-16"
             id={sf(section.title)}
           >
-            <Title className="max-w-lg">{section.title}</Title>
+            <h1 className="grid w-full max-w-lg rounded-lg py-4 text-center font-black text-4xl text-foreground uppercase md:text-[2.65rem]">
+              {section.title}
+            </h1>
 
             <Masonry
               columns={{ mobile: 1, desktop: 2 }}
@@ -195,9 +193,9 @@ export function FaqBlock(props: PageBlocksFaq) {
                     id={sf(q.question)}
                   >
                     <Link
-                      href={`/preguntas#${slugify(q.question)}`}
+                      href={`/preguntas#${sf(q.question)}`}
                       className="w-full font-semibold text-2xl hover:underline"
-                      id={slugify(q.question)}
+                      id={sf(q.question)}
                     >
                       {q.question}
                     </Link>

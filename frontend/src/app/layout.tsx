@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Footer from "@/components/layout/footer/Footer";
-import Gradient from "@/components/layout/global/gradient";
+import Gradient from "@/components/layout/gradient";
 import Header from "@/components/layout/header/Header";
 import WhatsappButton from "@/components/layout/WhatsappButton";
 import { DeviceProvider } from "@/components/providers/DeviceProvider";
@@ -11,7 +11,8 @@ import TsParticlesProvider from "@/components/providers/ParticlesProvider";
 import ProgressBarProvider from "@/components/providers/ProgressBarProvider";
 import { defaultMetadataConfig } from "@/config/metadata";
 import { organizationSchema, websiteSchema } from "@/config/structured-data";
-import client from "../../tina/__generated__/client";
+import { GA_ID, SITE_DESCRIPTION } from "@/config/variables";
+import { getGlobalData } from "@/services/cms";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,30 +21,17 @@ const inter = Inter({
 
 export async function generateMetadata(): Promise<Metadata> {
   try {
-    let title = "EnderHost | Hosting de Minecraft";
-    let description =
-      "Servidores de Minecraft en Perú y Latinoamérica con alto rendimiento y baja latencia.";
-
-    try {
-      const globalData = await client.queries.global({
-        relativePath: "index.json",
-      });
-      if (globalData?.data?.global?.title) title = globalData.data.global.title;
-      if (globalData?.data?.global?.description)
-        description = globalData.data.global.description;
-    } catch {
-      // fallback
-    }
+    const { title, description } = await getGlobalData();
 
     return {
       ...defaultMetadataConfig,
       openGraph: {
         title,
-        description,
+        description: description || SITE_DESCRIPTION,
         ...defaultMetadataConfig.openGraph,
       },
       title,
-      description,
+      description: description || SITE_DESCRIPTION,
     };
   } catch {
     return {
@@ -59,7 +47,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <GoogleAnalytics gaId="G-D2X23339MH" />
+      <GoogleAnalytics gaId={GA_ID} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

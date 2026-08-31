@@ -1,5 +1,5 @@
+import type { Page, PageBlocks } from "@tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
-import type { Page, PageBlocks } from "../../../tina/__generated__/types";
 import { ExtendDescriptionBlock } from "./extend-description";
 import { FaqBlock } from "./faq";
 import { HeroBlock } from "./hero";

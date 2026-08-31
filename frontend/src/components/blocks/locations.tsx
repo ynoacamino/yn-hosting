@@ -1,3 +1,4 @@
+import type { PageBlocksLocations } from "@tina/__generated__/types";
 import Image from "next/image";
 import type { Template } from "tinacms";
 import { tinaField } from "tinacms/dist/react";
@@ -6,9 +7,8 @@ import { BuyButton } from "@/components/ui/buy-button";
 import Cube3d from "@/components/ui/cube3d";
 import { Glass } from "@/components/ui/glass";
 import Section from "@/components/ui/section";
-import Title from "@/components/ui/title";
+import { TwoLineTitle } from "@/components/ui/two-line-title";
 import { InicioSections } from "@/config/pages";
-import type { PageBlocksLocations } from "../../../tina/__generated__/types";
 
 export const locationsBlockSchema: Template = {
   name: "locations",
@@ -95,14 +95,11 @@ export function LocationsBlock(props: PageBlocksLocations) {
       id={InicioSections.DESCUBRE_NUESTRAS_UBICACIONES}
       className="my-32 flex flex-col gap-14"
     >
-      <Title className="flex flex-col">
-        <span data-tina-field={tinaField(props, "titleLine1")}>
-          {titleLine1}
-        </span>
-        <span data-tina-field={tinaField(props, "titleLine2")}>
-          {titleLine2}
-        </span>
-      </Title>
+      <TwoLineTitle
+        line1={titleLine1}
+        line2={titleLine2}
+        className="flex flex-col"
+      />
 
       <div
         data-tina-field={tinaField(props, "locations")}

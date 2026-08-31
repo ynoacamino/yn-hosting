@@ -1,15 +1,15 @@
+import type { PageBlocksPricing } from "@tina/__generated__/types";
+import { iconSchema } from "@tina/fields/icon";
 import type { Template } from "tinacms";
 import { tinaField } from "tinacms/dist/react";
 import { BuyButton } from "@/components/ui/buy-button";
 import Cube3d from "@/components/ui/cube3d";
 import { Glass } from "@/components/ui/glass";
 import Section from "@/components/ui/section";
-import Title from "@/components/ui/title";
+import { TwoLineTitle } from "@/components/ui/two-line-title";
 import { PreciosSections } from "@/config/pages";
 import { IconMapper } from "@/lib/icons";
 import { cn } from "@/lib/utils";
-import type { PageBlocksPricing } from "../../../tina/__generated__/types";
-import { iconSchema } from "../../../tina/fields/icon";
 
 export const pricingBlockSchema: Template = {
   name: "pricing",
@@ -107,14 +107,7 @@ export function PricingBlock(props: PageBlocksPricing) {
       id={PreciosSections.ELIGUE_EL_MEJOR}
       className="my-20 flex flex-col gap-16"
     >
-      <Title>
-        <span data-tina-field={tinaField(props, "titleLine1")}>
-          {titleLine1}
-        </span>
-        <span data-tina-field={tinaField(props, "titleLine2")}>
-          {titleLine2}
-        </span>
-      </Title>
+      <TwoLineTitle line1={titleLine1} line2={titleLine2} />
 
       {plans && (
         <div

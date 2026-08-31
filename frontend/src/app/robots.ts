@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/config/variables";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -7,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/refetch/",
     },
-    sitemap: "https://enderhost.net.pe/sitemap.xml",
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

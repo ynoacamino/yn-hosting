@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import pagesConfig from "@/config/pages";
 import { cn } from "@/lib/utils";

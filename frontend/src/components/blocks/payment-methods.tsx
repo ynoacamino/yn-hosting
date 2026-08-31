@@ -1,15 +1,15 @@
 "use client";
 
+import type { PageBlocksPaymentMethods } from "@tina/__generated__/types";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import type { Template } from "tinacms";
 import { tinaField } from "tinacms/dist/react";
-import { Step } from "@/components/pages/precios/prueba";
 import ChatBubble from "@/components/ui/chat-bubble";
 import Section from "@/components/ui/section";
-import Title from "@/components/ui/title";
+import { Step } from "@/components/ui/step";
+import { TwoLineTitle } from "@/components/ui/two-line-title";
 import { PreciosSections } from "@/config/pages";
-import type { PageBlocksPaymentMethods } from "../../../tina/__generated__/types";
 
 const messagesBoubleUser = [
   "Me gusto mucho la prueba gratuita y quiero comprar un servidor, ¿cuales son los metodos de pago?",
@@ -155,7 +155,6 @@ export function PaymentMethodsBlock(props: PageBlocksPaymentMethods) {
   const {
     titleLine1 = "ACEPTAMOS TODAS LAS",
     titleLine2 = "BILLETERAS DIGITALES",
-    title,
     methods = [],
   } = props;
 
@@ -164,20 +163,7 @@ export function PaymentMethodsBlock(props: PageBlocksPaymentMethods) {
       id={PreciosSections.METODOS_DE_PAGO}
       className="my-20 flex flex-col gap-16"
     >
-      <Title>
-        {title ? (
-          <span data-tina-field={tinaField(props, "title")}>{title}</span>
-        ) : (
-          <>
-            <span data-tina-field={tinaField(props, "titleLine1")}>
-              {titleLine1}
-            </span>
-            <span data-tina-field={tinaField(props, "titleLine2")}>
-              {titleLine2}
-            </span>
-          </>
-        )}
-      </Title>
+      <TwoLineTitle line1={titleLine1} line2={titleLine2} />
 
       {methods && methods.length > 0 && (
         <div

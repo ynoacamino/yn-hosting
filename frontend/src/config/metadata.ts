@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { DEFAULT_LOGO_PATH, SITE_NAME, SITE_URL } from "@/config/variables";
 
 export const defaultMetadataConfig: Metadata = {
   keywords: [
@@ -14,21 +15,21 @@ export const defaultMetadataConfig: Metadata = {
     "Servidor de Minecraft con buen ping Perú",
   ],
   openGraph: {
-    url: "https://enderhost.net.pe",
-    siteName: "ENDER HOSTING",
+    url: SITE_URL,
+    siteName: SITE_NAME.toUpperCase(),
     images: [
       {
-        url: "/uploads/logo-emblema.png",
+        url: DEFAULT_LOGO_PATH,
         width: 1080,
         height: 726,
-        alt: "ENDER HOSTING Open Graph Image",
+        alt: `${SITE_NAME} Open Graph Image`,
       },
     ],
     locale: "es_PE",
     type: "website",
   },
-  metadataBase: new URL("https://enderhost.net.pe"),
-  alternates: { canonical: "https://enderhost.net.pe" },
+  metadataBase: new URL(SITE_URL),
+  alternates: { canonical: SITE_URL },
   robots: {
     index: true,
     follow: true,

@@ -1,20 +1,20 @@
+import client from "@tina/__generated__/client";
 import type { Metadata } from "next";
 import { generateProductsSchema } from "@/config/structured-data";
-import client from "../../../tina/__generated__/client";
+import { DEFAULT_REVALIDATE, SITE_NAME } from "@/config/variables";
 import ClientPage from "../[...urlSegments]/client-page";
 
 export const metadata: Metadata = {
-  title: "Precios | EnderHost",
+  title: `Precios | ${SITE_NAME}`,
   description:
     "Descubre nuestros planes de hosting y elige el que mejor se adapte a tus necesidades. Ofrecemos opciones para todos los presupuestos y requisitos.",
 };
 
-export const revalidate = 60;
-
 export default async function PrecioPage() {
-  const data = await client.queries.page({
-    relativePath: "precios.mdx",
-  });
+  const data = await client.queries.page(
+    { relativePath: "precios.mdx" },
+    { fetchOptions: { next: { revalidate: DEFAULT_REVALIDATE } } },
+  );
 
   const pricingBlocks =
     data.data.page.blocks?.filter(

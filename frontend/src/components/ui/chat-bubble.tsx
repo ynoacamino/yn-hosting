@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import TypewriterText from "@/components/ui/typewriterText";
+import TypewriterText from "@/components/ui/typewriter-text";
 import { cn } from "@/lib/utils";
 
 interface ChatBubbleProps {

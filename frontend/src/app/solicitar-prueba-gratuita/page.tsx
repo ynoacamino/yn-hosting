@@ -7,13 +7,10 @@ import { Button } from "@/components/ui/button";
 import { Glass } from "@/components/ui/glass";
 import Section from "@/components/ui/section";
 import Title from "@/components/ui/title";
-
-const WHATSAPP_URL =
-  "https://wa.me/51918534289?text=%C2%A1Hola%20Enderhosting%2C%20me%20gustar%C3%ADa%20saber%20un%20poco%20m%C3%A1s%20sobre%20sus%20planes%20y%20de%20la%20prueba%20gratuita.";
-const REDIRECT_SECONDS = 3;
+import { WHATSAPP_REDIRECT_SECONDS, WHATSAPP_URL } from "@/config/variables";
 
 export default function SolicitarPruebaPage() {
-  const [countdown, setCountdown] = useState(REDIRECT_SECONDS);
+  const [countdown, setCountdown] = useState(WHATSAPP_REDIRECT_SECONDS);
   const [hasRedirected, setHasRedirected] = useState(false);
 
   const openWhatsApp = useCallback(() => {

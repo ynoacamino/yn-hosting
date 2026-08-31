@@ -1,6 +1,7 @@
 "use client";
 
 import { IconCircleCheckFilled } from "@tabler/icons-react";
+import type { PageBlocksHero } from "@tina/__generated__/types";
 import { motion } from "motion/react";
 import Link from "next/link";
 import type { Template } from "tinacms";
@@ -8,7 +9,6 @@ import { tinaField } from "tinacms/dist/react";
 import { Button } from "@/components/ui/button";
 import Section from "@/components/ui/section";
 import { InicioSections } from "@/config/pages";
-import type { PageBlocksHero } from "../../../tina/__generated__/types";
 
 export const heroBlockSchema: Template = {
   name: "hero",

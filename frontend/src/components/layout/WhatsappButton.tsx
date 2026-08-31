@@ -2,11 +2,12 @@
 
 import { IconBrandWhatsapp } from "@tabler/icons-react";
 import { motion } from "motion/react";
+import { WHATSAPP_URL } from "@/config/variables";
 
 export default function WhatsappButton() {
   return (
     <motion.a
-      href="/solicitar-prueba-gratuita"
+      href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed right-6 bottom-6 z-100 rounded-full bg-green-500 p-3 shadow-lg hover:bg-green-400"

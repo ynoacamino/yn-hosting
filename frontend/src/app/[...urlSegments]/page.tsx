@@ -1,8 +1,7 @@
+import client from "@tina/__generated__/client";
 import { notFound } from "next/navigation";
-import client from "../../../tina/__generated__/client";
+import { DEFAULT_REVALIDATE } from "@/config/variables";
 import ClientPage from "./client-page";
-
-export const revalidate = 60;
 
 export default async function DynamicPage({
   params,
@@ -13,9 +12,10 @@ export default async function DynamicPage({
   const filepath = resolvedParams.urlSegments.join("/");
 
   try {
-    const data = await client.queries.page({
-      relativePath: `${filepath}.mdx`,
-    });
+    const data = await client.queries.page(
+      { relativePath: `${filepath}.mdx` },
+      { fetchOptions: { next: { revalidate: DEFAULT_REVALIDATE } } },
+    );
     return <ClientPage {...data} />;
   } catch {
     notFound();

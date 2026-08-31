@@ -449,7 +449,6 @@ import { motion as motion2 } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Masonry from "react-smart-masonry";
-import slugify2 from "slugify";
 import { tinaField as tinaField2 } from "tinacms/dist/react";
 var faqBlockSchema = {
   name: "faq",
@@ -725,6 +724,9 @@ import { tinaField as tinaField5 } from "tinacms/dist/react";
 // src/components/ui/buy-button.tsx
 import Link3 from "next/link";
 
+// src/config/variables.ts
+var GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "";
+
 // src/components/ui/cube3d.tsx
 import Image2 from "next/image";
 
@@ -799,37 +801,21 @@ var locationsBlockSchema = {
 };
 
 // src/components/blocks/payment-methods.tsx
-import Image5 from "next/image";
+import Image4 from "next/image";
 import { useEffect as useEffect2, useRef as useRef2, useState as useState2 } from "react";
 import { tinaField as tinaField6 } from "tinacms/dist/react";
-
-// src/components/pages/precios/prueba.tsx
-import Image4 from "next/image";
-import Link4 from "next/link";
 
 // src/components/ui/chat-bubble.tsx
 import { motion as motion5 } from "motion/react";
 
-// src/components/ui/typewriterText.tsx
+// src/components/ui/typewriter-text.tsx
 import { useEffect, useRef, useState } from "react";
 
-// src/components/pages/precios/prueba.tsx
-var messagesBoubleUser = [
-  "Me gustaria hacer la prueba gratuita \u{1F601}\u{1F601}",
-  "- En la version 1.20.1",
-  "- Y usando forge para mods",
-  "Mi correo para la creacion de la cuenta de prueba es: tu_correo@example.com"
-];
-var messagesBoubleUserLength = messagesBoubleUser.reduce(
-  (acc, curr) => acc + curr.length,
-  0
-);
-
 // src/components/blocks/payment-methods.tsx
-var messagesBoubleUser2 = [
+var messagesBoubleUser = [
   "Me gusto mucho la prueba gratuita y quiero comprar un servidor, \xBFcuales son los metodos de pago?"
 ];
-var messagesBoubleUserLength2 = messagesBoubleUser2.reduce(
+var messagesBoubleUserLength = messagesBoubleUser.reduce(
   (acc, curr) => acc + curr.length,
   0
 );
@@ -977,7 +963,7 @@ var pricingBlockSchema = {
 };
 
 // src/components/blocks/versions.tsx
-import Image6 from "next/image";
+import Image5 from "next/image";
 import { tinaField as tinaField8 } from "tinacms/dist/react";
 var versionsBlockSchema = {
   name: "versions",

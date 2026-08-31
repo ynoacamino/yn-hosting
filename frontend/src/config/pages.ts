@@ -7,8 +7,6 @@ export enum InicioSections {
   DESCUBRE_NUESTRAS_UBICACIONES = "inicio-descubre-nuestras-ubicaciones",
 }
 
-export enum ConocenosSections {}
-
 export enum PreciosSections {
   ELIGUE_EL_MEJOR = "precios-eligue-el-mejor",
   PLAN_ROCA = "precios-plan-roca",
@@ -26,22 +24,18 @@ export enum PreguntasSections {
   RECOMENDACIONES_EN_GENERAL = "preguntas-recomendaciones-en-general",
 }
 
-interface SectionInterface {
+export interface Section {
   name: string;
   id: string;
 }
 
-interface PageInterface {
-  sections?: SectionInterface[];
+export interface Page {
+  sections?: Section[];
   name: string;
   path: string;
 }
 
-interface PageConfigInterface {
-  pages: PageInterface[];
-}
-
-const pageConfig: PageConfigInterface = {
+const pageConfig: { pages: Page[] } = {
   pages: [
     {
       name: "Inicio",

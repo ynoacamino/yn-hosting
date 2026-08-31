@@ -1,14 +1,14 @@
 "use client";
 
+import type { PageBlocksExtendDescription } from "@tina/__generated__/types";
 import { motion } from "motion/react";
 import Image from "next/image";
 import type { Template } from "tinacms";
 import { tinaField } from "tinacms/dist/react";
 import { useDevice } from "@/components/providers/DeviceProvider";
 import Section from "@/components/ui/section";
-import Title from "@/components/ui/title";
+import { TwoLineTitle } from "@/components/ui/two-line-title";
 import { InicioSections } from "@/config/pages";
-import type { PageBlocksExtendDescription } from "../../../tina/__generated__/types";
 
 export const extendDescriptionBlockSchema: Template = {
   name: "extendDescription",
@@ -73,14 +73,11 @@ export function ExtendDescriptionBlock(props: PageBlocksExtendDescription) {
       id={InicioSections.CARACTERISTICAS}
       className="my-32 flex flex-col gap-14"
     >
-      <Title className="flex flex-col">
-        <span data-tina-field={tinaField(props, "titleLine1")}>
-          {titleLine1}
-        </span>
-        <span data-tina-field={tinaField(props, "titleLine2")}>
-          {titleLine2}
-        </span>
-      </Title>
+      <TwoLineTitle
+        line1={titleLine1}
+        line2={titleLine2}
+        className="flex flex-col"
+      />
 
       {items && items.length > 0 && (
         <div

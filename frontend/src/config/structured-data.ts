@@ -1,11 +1,17 @@
+import type {
+  PageBlocksFaqSectionsQuestions,
+  PageBlocksPricingPlans,
+} from "@tina/__generated__/types";
+import { DEFAULT_LOGO_PATH, SITE_NAME, SITE_URL } from "@/config/variables";
+
 type JsonLdThing = Record<string, unknown>;
 
 export const organizationSchema: JsonLdThing = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "EnderHost",
-  url: "https://enderhost.net.pe",
-  logo: "/uploads/logo-emblema.png",
+  name: SITE_NAME,
+  url: SITE_URL,
+  logo: DEFAULT_LOGO_PATH,
   description:
     "Hosting de Minecraft en Perú con soporte técnico 24/7, baja latencia y planes accesibles.",
   address: {
@@ -22,30 +28,23 @@ export const organizationSchema: JsonLdThing = {
 export const websiteSchema: JsonLdThing = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "EnderHost",
-  url: "https://enderhost.net.pe",
+  name: SITE_NAME,
+  url: SITE_URL,
   potentialAction: {
     "@type": "SearchAction",
     target: {
       "@type": "EntryPoint",
-      urlTemplate: "https://enderhost.net.pe/preguntas?q={search_term_string}",
+      urlTemplate: `${SITE_URL}/preguntas?q={search_term_string}`,
     },
     "query-input": "required name=search_term_string",
   },
 };
 
-interface ProductItem {
-  name?: string | null;
-  description?: string | null;
-  price?: number | null;
-  block?: string | null;
-}
-
 export function generateProductsSchema(
-  plans?: (ProductItem | null | undefined)[] | null,
+  plans?: (PageBlocksPricingPlans | null | undefined)[] | null,
 ): JsonLdThing[] {
   return (plans || [])
-    .filter((plan): plan is ProductItem => Boolean(plan?.name))
+    .filter((plan): plan is PageBlocksPricingPlans => Boolean(plan?.name))
     .map((plan) => ({
       "@context": "https://schema.org",
       "@type": "Product",
@@ -56,11 +55,11 @@ export function generateProductsSchema(
       image: plan.block || "/uploads/block-iron.webp",
       brand: {
         "@type": "Brand",
-        name: "EnderHost",
+        name: SITE_NAME,
       },
       offers: {
         "@type": "Offer",
-        url: "https://enderhost.net.pe/precios",
+        url: `${SITE_URL}/precios`,
         priceCurrency: "PEN",
         price: `${plan.price || 0}`,
         priceValidUntil: "2026-12-31",
@@ -109,19 +108,16 @@ export const productsSchema: JsonLdThing[] = generateProductsSchema([
   },
 ]);
 
-interface Pregunta {
-  question?: string | null;
-  answer?: string | null;
-}
-
 export function generateFAQSchema(
-  preguntas?: (Pregunta | null | undefined)[] | null,
+  preguntas?: (PageBlocksFaqSectionsQuestions | null | undefined)[] | null,
 ): JsonLdThing {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: (preguntas || [])
-      .filter((p): p is Pregunta => Boolean(p?.question && p?.answer))
+      .filter((p): p is PageBlocksFaqSectionsQuestions =>
+        Boolean(p?.question && p?.answer),
+      )
       .map((p) => ({
         "@type": "Question",
         name: p.question || "",

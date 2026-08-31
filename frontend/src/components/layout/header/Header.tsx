@@ -1,30 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import client from "../../../../tina/__generated__/client";
+import { HEADER_REVALIDATE } from "@/config/variables";
+import { getGlobalData } from "@/services/cms";
 import HeaderDesktop from "./HeaderDesktop";
 import HeaderMobile from "./HeaderMobile";
 
 import "./Header.css";
 
-export const revalidate = 60 * 60;
+export const revalidate = HEADER_REVALIDATE;
 
 export default async function Header() {
-  let logo = "/uploads/logo-emblema.png";
-  let title = "EnderHost";
-
-  try {
-    const globalData = await client.queries.global({
-      relativePath: "index.json",
-    });
-    if (globalData?.data?.global?.logo) {
-      logo = globalData.data.global.logo;
-    }
-    if (globalData?.data?.global?.title) {
-      title = globalData.data.global.title;
-    }
-  } catch {
-    // fallback to defaults if not generated yet
-  }
+  const { logo, title } = await getGlobalData();
 
   return (
     <div

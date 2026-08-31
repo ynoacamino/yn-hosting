@@ -1,12 +1,12 @@
+import type { PageBlocksVersions } from "@tina/__generated__/types";
+import { iconSchema } from "@tina/fields/icon";
 import Image from "next/image";
 import type { Template } from "tinacms";
 import { tinaField } from "tinacms/dist/react";
 import Section from "@/components/ui/section";
-import Title from "@/components/ui/title";
+import { TwoLineTitle } from "@/components/ui/two-line-title";
 import { InicioSections } from "@/config/pages";
 import { IconMapper } from "@/lib/icons";
-import type { PageBlocksVersions } from "../../../tina/__generated__/types";
-import { iconSchema } from "../../../tina/fields/icon";
 
 export const versionsBlockSchema: Template = {
   name: "versions",
@@ -96,14 +96,11 @@ export function VersionsBlock(props: PageBlocksVersions) {
       id={InicioSections.SOPORTAMOS_TODOS_LOS_MINECRAFTS}
       className="my-32 flex flex-col gap-14"
     >
-      <Title className="flex flex-col">
-        <span data-tina-field={tinaField(props, "titleLine1")}>
-          {titleLine1}
-        </span>
-        <span data-tina-field={tinaField(props, "titleLine2")}>
-          {titleLine2}
-        </span>
-      </Title>
+      <TwoLineTitle
+        line1={titleLine1}
+        line2={titleLine2}
+        className="flex flex-col"
+      />
 
       <div className="flex w-full flex-col gap-8">
         {mainCards && mainCards.length > 0 && (

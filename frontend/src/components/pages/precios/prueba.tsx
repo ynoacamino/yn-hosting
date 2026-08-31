@@ -5,7 +5,9 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import ChatBubble from "@/components/ui/chat-bubble";
 import Section from "@/components/ui/section";
+import { Step } from "@/components/ui/step";
 import Title from "@/components/ui/title";
+import { WHATSAPP_URL } from "@/config/variables";
 
 const messagesBoubleUser = [
   "Me gustaria hacer la prueba gratuita 😁😁",
@@ -24,28 +26,6 @@ const messagesBoubleSupport = [
   "Revisa tu correo en unos minutos para la confirmacion y los datos de tu cuenta de prueba.",
   "Disfruta la prueba 🙌🙌",
 ];
-
-export function Step({
-  index,
-  title,
-  children,
-}: {
-  index: number;
-  title: string;
-  children?: React.ReactNode;
-}) {
-  return (
-    <div className="flex flex-col gap-10">
-      <div className="flex items-center justify-start gap-6 text-lg md:text-2xl">
-        <div className="flex size-10 min-w-10 items-center justify-center rounded-full border-2 border-foreground">
-          {index}
-        </div>
-        <span>{title}</span>
-      </div>
-      {children}
-    </div>
-  );
-}
 
 export default function Prueba() {
   return (
@@ -101,7 +81,7 @@ export default function Prueba() {
         >
           <div className="flex w-full items-center justify-center">
             <Button asChild size="lg">
-              <Link target="_blank" href="/solicitar-prueba-gratuita">
+              <Link target="_blank" href={WHATSAPP_URL}>
                 Solicitar tu prueba gratuita
               </Link>
             </Button>

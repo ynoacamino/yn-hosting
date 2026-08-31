@@ -1,20 +1,20 @@
+import client from "@tina/__generated__/client";
 import type { Metadata } from "next";
 import { generateFAQSchema } from "@/config/structured-data";
-import client from "../../../tina/__generated__/client";
+import { DEFAULT_REVALIDATE, SITE_NAME } from "@/config/variables";
 import ClientPage from "../[...urlSegments]/client-page";
 
 export const metadata: Metadata = {
-  title: "Preguntas Frecuentes | EnderHost",
+  title: `Preguntas Frecuentes | ${SITE_NAME}`,
   description:
     "Encuentra respuestas a las preguntas más comunes sobre nuestros servicios de hosting. Desde la configuración hasta la gestión de tu cuenta, estamos aquí para ayudarte.",
 };
 
-export const revalidate = 60;
-
 export default async function PreguntasPage() {
-  const data = await client.queries.page({
-    relativePath: "preguntas.mdx",
-  });
+  const data = await client.queries.page(
+    { relativePath: "preguntas.mdx" },
+    { fetchOptions: { next: { revalidate: DEFAULT_REVALIDATE } } },
+  );
 
   const allPreguntas: Array<{ question: string; answer: string }> = [];
   const blocks = data.data.page.blocks || [];
